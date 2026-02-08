@@ -1,0 +1,70 @@
+//#`include "apb_interface.v"
+
+module bus_arbiter();
+    input Pclk;
+    //Master 1 signals
+    input M1_PSel;
+    input M1_PEnable;
+    input M1_PWrite;
+    input [7:0] M1_Address;
+    input [1:0] M1_Slave_sel;
+    input [7:0] M1_PWData;
+    output reg M1_PReady;
+
+    //Master 2 signals
+    input M2_PSel;
+    input M2_PEnable;
+    input M2_PWrite;
+    input [7:0] M2_Address;
+    input [1:0] M2_Slave_sel;
+    input [7:0] M2_PWData;
+    output reg M2_PReady;
+
+    //Output signals to slaves
+    output reg PSel;
+    output reg PEnable;
+    output reg PWrite;
+    output reg [7:0] PAddress;
+    output reg [7:0] PWData;
+    output reg [1:0] Slave_sel;
+    input [7:0] PRData;
+    input PReady;
+
+    reg Bus_busy;
+
+    //Arbiteration Logic: 1 gets more priority
+    //Once a transfer starts, the bus is locked
+
+    always @(posedge Pclk) begin
+        if (M1_PSel && ~Bus_busy) begin
+            PSel<=M1_PSel;
+            PEnable<=M1_PEnable;
+            PWrite<=M1_PWrite;
+            PAddress<=M1_Address;
+            PWData<=M1_PWData;
+            Slave_sel<=M1_Slave_sel;
+            Bus_busy<=1'b1;
+            M1_PReady<=PReady;
+            M2_PReady<=1'b0;
+        end
+
+        else if (M2_PSel && ~Bus_busy) begin
+            PSel<=M2_PSel;
+            PEnable<=M2_PEnable;
+            PWrite<=M2_PWrite;
+            PAddress<=M2_Address;
+            PWData<=M2_PWData;
+            Slave_sel<=M2_Slave_sel;
+            Bus_busy<=1'b1;
+            M2_PReady<=PReady;
+            M1_PReady<=1'b0;
+        end
+
+        else if (~M1_PSel && ~M2_PSel) begin
+            Bus_busy<=1'b0;
+        end
+    end 
+
+   
+
+endmodule

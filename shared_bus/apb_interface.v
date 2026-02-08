@@ -1,4 +1,20 @@
-module APB_MASTER();
+module APB_Master(
+  PReset,
+  Pclk,
+  RW,
+  Valid,
+  Address,
+  Data_to_write,
+  Data_to_read,
+  PRData,
+  PReady,
+  PSel,
+  PEnable,
+  PAddress,
+  PWData,
+  PWrite,
+  Slave_sel
+);
 
     input PReset;
     input Pclk;
@@ -18,7 +34,7 @@ module APB_MASTER();
     output reg [7:0] PAddress;
     output reg [7:0] PWData;
     output reg PWrite;
-    output Slave_sel;
+    output [1:0] Slave_sel;
 
     assign Slave_sel= Address[9:8];
 
@@ -55,14 +71,28 @@ module APB_MASTER();
 
 endmodule
 
-module APB_SLAVE();
+module APB_Slave(
+PReset,
+Pclk,
+PSel,
+PEnable,
+PAddress,
+PWData,
+PWrite,
+PReady,
+PRData,
+Data_in,
+Data_out,
+Address,
+RW
+);
 
     //ports connected to the bus
     input PReset;
-    input PClk;
+    input Pclk;
     input PSel;
     input  PEnable;
-    input [3:0] PAddress;
+    input [7:0] PAddress;
     input [7:0] PWData;
     input PWrite;
     output reg PReady;
@@ -76,7 +106,7 @@ module APB_SLAVE();
     output reg [7:0] Address;
     output reg RW;
 
-    always @(posedge PClk) begin
+    always @(posedge Pclk) begin
         if (PReset) begin
           PReady<=0;
         end
