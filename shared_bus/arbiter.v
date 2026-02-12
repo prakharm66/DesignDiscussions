@@ -1,6 +1,30 @@
 //#`include "apb_interface.v"
 
-module bus_arbiter();
+module bus_arbiter(
+    Pclk,
+    M1_PSel,
+    M1_Enable,
+    M1_PWrite,
+    M1_Address,
+    M1_Slave_sel,
+    M1_PWData,
+    M1_PReady,
+    M2_PSel,
+    M2_PEnable,
+    M2_PWrite,
+    M2_Address,
+    M2_Slave_sel,
+    M3_PWData,
+    M4_PReady,
+    PSel,
+    PEnable,
+    PWrite,
+    PAddress,
+    PWData,
+    Slave_sel,
+    PRData,
+    PReady
+);
     input Pclk;
     //Master 1 signals
     input M1_PSel;
