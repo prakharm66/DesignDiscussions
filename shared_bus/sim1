@@ -1,0 +1,312 @@
+M1_PSel:x, M1_Valid:x, M2_PSel:x, M2_Valid:x 
+i:           x, reset: x, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:x, S2_PSel:x, S3_PSel:x,,S1_PReady:x, S2_PReady:x, S3_PReady:x
+M1_PSel:x, M1_Valid:x, M2_PSel:x, M2_Valid:x 
+i:           x, reset: x, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:x, S2_PSel:x, S3_PSel:x,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:x, M1_Valid:x, M2_PSel:x, M2_Valid:x 
+i:           x, reset: 1, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:x, S2_PSel:x, S3_PSel:x,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:0, M1_Valid:x, M2_PSel:0, M2_Valid:x 
+i:           x, reset: 1, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:0, M1_Valid:x, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:0, M1_Valid:1, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:x, M_PEnable:x, M_PWrite:x,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:1, M_PEnable:x, M_PWrite:x,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:0, M2_Valid:x 
+i:           0, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:0, M2_Valid:1 
+i:           0, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           0, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+Ready signal came from slave and bus was busy
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           1, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+Master 2 has requested
+Master 2 has requested
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Master 2 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           2, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           2, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           3, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Master 1 has requested
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           3, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           3, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           3, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           3, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           3, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           4, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+Ready signal came from slave and bus was busy
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           5, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+Master 2 has requested
+Master 2 has requested
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Master 2 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           6, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           6, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           7, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Master 1 has requested
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           7, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           7, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           7, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           7, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           7, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:1,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:1
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:0,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:0, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           8, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:1, S2_PSel:0, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+Master 1 has requested
+Ready signal came from slave and bus was busy
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:1, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 1 has requested
+M1_PSel:1, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:1, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+Ready signal came from slave and bus was busy
+M1_PSel:0, M1_Valid:1, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:1, S3_PReady:0
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:1 
+i:           9, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+Master 2 has requested
+M1_PSel:0, M1_Valid:0, M2_PSel:1, M2_Valid:0 
+i:          10, reset: 0, M_PSel:1, M_PEnable:1, M_PWrite:1,S1_PSel:0, S2_PSel:0, S3_PSel:0,,S1_PReady:0, S2_PReady:0, S3_PReady:0
+Master 2 has requested
+Master 2 has requested
+Master 2 has requested
+Master 2 has requested
+Master 2 has requested
+./test_bench.v:230: $finish called at 1874 (1s)
