@@ -1,3 +1,4 @@
+
 module tb();
 
     reg clk;
@@ -49,18 +50,22 @@ module tb();
     wire S1_PSel, S2_PSel, S3_PSel;
     wire [7:0] S_PRData;
 
+    wire s1_sel1,s2_sel1,s3_sel1;
     //Demuxing logic
-    assign S1_PSel = M1_PSel && ~M1_Slave_sel[0] && ~M1_Slave_sel[1];
-    assign S2_PSel = M1_PSel && M1_Slave_sel[0] && ~M1_Slave_sel[1];
-    assign S3_PSel = M1_PSel && M1_Slave_sel[1];
+    assign s1_sel1 = ~M_Slave_sel[0] && ~M_Slave_sel[1];
+    assign s2_sel1 = M_Slave_sel[0] && ~M_Slave_sel[1];
+    assign s3_sel1 = M_Slave_sel[1];
     
+  	assign S1_PSel = s1_sel1 && M_PSel;
+    assign S2_PSel = s2_sel1 && M_PSel;
+    assign S3_PSel = s3_sel1 && M_PSel;
     
     //From arbiter to bus
     wire M_PSel,M_PEnable,M_PWrite;
     wire [7:0] M_PWData, M_PAddress;
     wire [1:0] M_Slave_sel;
     wire M_PReady;
-    assign M_PReady = (S1_PSel && S1_PReady) || (S2_PSel && S2_PReady) || (S3_PSel && S3_PReady);
+  assign M_PReady = (s1_sel1 && S1_PReady) || (s2_sel1 && S2_PReady) || (s3_sel1 && S3_PReady);
 
 
     APB_Master M1(
@@ -185,16 +190,16 @@ module tb();
             S1_Data_out = 10-i;
             S2_Data_out = 20-i;
             S3_Data_out = 30-i;
-            #40 M1_Valid = 1'b0;
+            #30 M1_Valid = 1'b0;
 
             #30 M2_Valid = 1'b1;
-            M2_Address = {i[1:0],i[7:0]};
+          M2_Address = {i[1:0],4'b1111,i[3:0]}; //M2 address will have F in between
             M2_RW = i[1];
             M2_Data_to_write = ~i[7:0]+8'h10;
             // S1_Data_out = 10-i;
             // S2_Data_out = 20-i;
             // S3_Data_out = 30-i;
-            #40 M2_Valid = 1'b0;
+            #30 M2_Valid = 1'b0;
         end
 
 
@@ -207,9 +212,9 @@ module tb();
         
             end
 
-    //initial begin
-    //   $fsdbDumpfile("waves.tsdb");
-    //    $fsdbDumpvars(0,tb);
-    //end        
+    initial begin
+      $dumpfile("dump.vcd");
+      $dumpvars(0,tb);
+    end        
 
 endmodule
