@@ -1,0 +1,14 @@
+Paper: https://arxiv.org/html/2501.17605v1#bib.bib5
+
+There are two approcahes in this paper, both approaches there are as many counters as there are possible IDs
+
+Approach 1: Full counter: Tracks each channel separately, 6 stages from awValid to BRdy
+
+Approach 2: Tiny counter: somehow Transaction level tracking
+
+
+CHATGPT approach:
+There can be a timestamp, whenever a transaction for an ID comes, that time stamp is registered. whenever response comes, we can subtract and find latency
+
+OTHER approaches:
+Separate counters for 
