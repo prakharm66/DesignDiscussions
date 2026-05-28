@@ -1,4 +1,4 @@
-`timescale 1ps/
+`timescale 1ps/1ps
 
 module dataless_filter(
     AOpcode,
@@ -11,9 +11,9 @@ input [6:0] AOpcode;
 input AValid;
 input Clk;  
 
-output IsDataless;
+output reg IsDataless;
 
-//Opcodes which needs to be filtered out
+
 // CleanInvalid:        0,00,x9
 // CleanInvalidPopa:    1,00,xD 
 // Makeinvalid:         0,00,xA
@@ -28,14 +28,29 @@ output IsDataless;
 // StashOnceShared:     0,10,x2
 // StashOnceSepShared:  1,00,x7 
 
-wire matched;
-assign matched = (AOpcode == 7'h09) || (AOpcode == 7'h0D) || (AOpcode == 7'h0A) || (AOpcode == 7'h08) || (AOpcode == 7'h27) || (AOpcode == 7'h13) || (AOpcode == 7'h0B) || (AOpcode == 7'h0C) || (AOpcode == 7'h0D) || (AOpcode == 7'h23) || (AOpcode == 7'h18) || (AOpcode == 7'h27);
+//Opcodes which needs to be filtered out
+`define CleanInvalid          7'h09 
+`define CleanInvalidPopa      7'h4D
+`define Makeinvalid           7'h0A
+`define CleanShared           7'h08
+`define CleanSharedPersist    7'h27
+`define CleaSharedPersistSep  7'h13
+`define CleanUnique           7'h1B
+`define makeunique            7'h0C
+`define Evict                 7'h0D
+`define StashOnceUnique       7'h23
+`define StashOnceSepUnique    7'h48
+`define StashOnceShared       7'h22
+`define StashOnceSepShared    7'h47 
 
-always @(poseedge clk) begin
+wire matched;
+assign matched = (AOpcode == `CleanInvalid) || (AOpcode == `CleanInvalidPopa) || (AOpcode == `Makeinvalid) || (AOpcode == `CleanShared) || (AOpcode == `CleanSharedPersist) || (AOpcode == `CleaSharedPersistSep) || (AOpcode == `CleanUnique) || (AOpcode == `makeunique) || (AOpcode == `Evict) || (AOpcode == `StashOnceUnique) || (AOpcode == `StashOnceSepUnique) || (AOpcode == `StashOnceShared) || (AOpcode == `StashOnceSepShared);
+
+always @(posedge Clk) begin
     if (AValid) begin
-        IsDataless <= matched;
+        IsDataless = matched;
     end else begin
-        IsDataless <= 0;
+        IsDataless = 0;
     end
 end
 
