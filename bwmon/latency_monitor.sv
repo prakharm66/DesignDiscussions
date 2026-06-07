@@ -6,7 +6,8 @@
 // this is simulation time monitor, no outputs
 //I am assuming that max latency of a transaction can be 16 cycles so that would come in 4 bit counter
 
-module active_tr_latency_count(
+module active_tr_latency_count #(parameter Id_Width = 2)
+(
     
     //clk and reset
     clk,
@@ -22,8 +23,10 @@ module active_tr_latency_count(
 
 );
 
-    input [1:0] Req_TrId;
-    input [1:0] Rsp_TrId;
+    // parameter Id_Width = 2; //width of transaction ID, can be changed as per protocol
+
+    input [Id_Width-1:0] Req_TrId;
+    input [Id_Width-1:0] Rsp_TrId;
     input Req_Vld;
     input Rsp_Vld;
     input Req_Rdy;
@@ -32,14 +35,14 @@ module active_tr_latency_count(
     input clk;
     input rst;
 
-    reg [3:0] Tr_Active ; //Active signals to tell which transaction is active
-    reg [3:0] Tr_Cnt [3:0]; //4 counters of for bit, one for each TrId
+    reg [ 2**Id_Width-1 :0] Tr_Active ; //Active signals to tell which transaction is active
+    reg [ 3 :0] Tr_Cnt [2**Id_Width-1:0]; // counters of four bit, one for each TrId
 
     //for simulation monitoring
-    wire TrCnt1 = Tr_Cnt[0];
-    wire TrCnt2 = Tr_Cnt[1];
-    wire TrCnt3 = Tr_Cnt[2];    
-    wire TrCnt4 = Tr_Cnt[3];    
+    wire [3:0] TrCnt1 = Tr_Cnt[0];
+    wire [3:0] TrCnt2 = Tr_Cnt[1];
+    wire [3:0] TrCnt3 = Tr_Cnt[2];    
+    wire [3:0] TrCnt4 = Tr_Cnt[3];    
 
     wire start; //it tells if transaction has arrived
     wire done; //it tells if transaction has completed
@@ -50,8 +53,8 @@ module active_tr_latency_count(
     integer i,j;
     always @(posedge clk) begin
         if (rst) begin
-            Tr_Active  = 4'b0000;
-            for (i=0 ; i<4 ; i+=1)
+            Tr_Active  = {2**Id_Width{1'b0}}; // all transaction inactive at reset
+            for (i=0 ; i< 2**Id_Width ; i+=1)
                  Tr_Cnt[i] = 4'b0000;
         end
 
@@ -64,7 +67,7 @@ module active_tr_latency_count(
                 Tr_Active[Rsp_TrId] = 1'b0;
             end
 
-            for ( j=0 ; j<4 ; j++) begin
+            for ( j=0 ; j<2**Id_Width ; j++) begin
                 Tr_Cnt[j] = (Tr_Active[j]==0) ? 4'b0000 : Tr_Cnt[j]+1'b1;
             end
 
