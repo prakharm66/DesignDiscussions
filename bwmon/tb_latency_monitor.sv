@@ -53,6 +53,7 @@ endtask
     reg [Id_Width-1:0] new_id_to_send;
     reg [Id_Width-1:0] new_id_to_accept;
     int random_idx_free, random_idx_active;
+    reg add_req=1'b0,add_rsp=1'b0;
 
     // Fill the free id queue with all possible transaction IDs at the beginning of simulation
     initial begin
@@ -80,7 +81,6 @@ endtask
         rst = 1'b1;
         #30 rst = 1'b0;
 
-
         //sending the transactions
         for (int j =0 ; j<20; j++) begin
             #10;
@@ -90,9 +90,9 @@ endtask
                         random_idx_free = $urandom_range(0, free_ids.size()-1);
                         new_id_to_send = free_ids[random_idx_free];
                         free_ids.delete(random_idx_free);
-                        
                         $display("%d would be sent",new_id_to_send);
-                        Send_request(new_id_to_send);    
+                        Send_request(new_id_to_send);   
+                        add_req=1'b1; 
                     end
                 end
 
@@ -101,16 +101,24 @@ endtask
                         random_idx_active = $urandom_range(0, active_ids.size()-1);
                         new_id_to_accept = active_ids[random_idx_active];
                         active_ids.delete(random_idx_active);
-                        
                         $display("%d would be accepted",new_id_to_accept);
                         Accept_request(new_id_to_accept);
+                        add_rsp=1'b1;
                     end
                 end
             join
 
-            active_ids.push_back(new_id_to_send);
-            free_ids.push_back(new_id_to_accept);
-            
+            #1;//wait for sometime before adding
+
+            if (add_req) begin    
+                active_ids.push_back(new_id_to_send);
+                add_req=1'b0;
+            end
+
+            if (add_rsp) begin
+                free_ids.push_back(new_id_to_accept);
+                add_rsp=1'b0;
+            end
             $display("-------------------------");
 
         end
