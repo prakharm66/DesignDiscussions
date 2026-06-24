@@ -75,4 +75,27 @@ module active_tr_latency_count #(parameter Id_Width = 2)
              
     end 
 
+
+    reg [4*2**Id_Width-1:0] big_counter;
+    reg [2**Id_Width-1:0] num_of_active_transactions;
+    wire [5:0] avg_transactions_latency;
+
+    assign avg_transactions_latency = (num_of_active_transactions==0) ? 6'b000000 : big_counter/num_of_active_transactions;
+
+    always @(posedge clk) begin
+        if (rst) begin
+            big_counter = 0;
+            num_of_active_transactions = 0;
+        end
+        else begin
+            big_counter = big_counter + num_of_active_transactions;
+            num_of_active_transactions = num_of_active_transactions + start - done;
+
+            if (done)
+                big_counter = big_counter - avg_transactions_latency;
+        end    
+    end
+
+
+
 endmodule    
