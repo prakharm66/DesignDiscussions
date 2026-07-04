@@ -64,9 +64,22 @@ endtask
 
     initial begin
         
-        $monitor (" %d, ReqVld %b, ReqTrId %d, RspVld %b, RspTrId %d ,\n  TrActive %b,  TrCnt1 %d, TrCnt2 %d , TrCnt3 %d , TrCnt4 %d, AvgLat %d, TotalLat %d, NumActive %d, total_trn %d",$time
+        // //This is for latency_monitor_1
+        // $monitor (" %d, ReqVld %b, ReqTrId %d, RspVld %b, RspTrId %d ,\n  TrActive %b,  TrCnt1 %d, TrCnt2 %d , TrCnt3 %d , TrCnt4 %d, AvgLat %d, TotalLat %d, NumActive %d, instantaneous_latency %d",$time
+        // ,Req_Vld, Req_TrId, Rsp_Vld, Rsp_TrId, 
+        // dut.Tr_Active, dut.Tr_Cnt[0], dut.Tr_Cnt[1], dut.Tr_Cnt[2], dut.Tr_Cnt[3], dut.avg_transactions_latency, dut.big_counter, dut.num_of_active_transactions, dut.ins_latency            
+        // );
+
+        // //This is for latency_monitor_2
+        // $monitor (" %d, ReqVld %b, ReqTrId %d, RspVld %b, RspTrId %d ,\n  TrActive %b,  AvgLat %d, TotalLat %d, NumActive %d",$time
+        // ,Req_Vld, Req_TrId, Rsp_Vld, Rsp_TrId, 
+        // dut.Tr_Active, dut.Tr_Cnt[0], dut.Tr_Cnt[1], dut.Tr_Cnt[2], dut.Tr_Cnt[3], dut.avg_transactions_latency, dut.big_counter, dut.num_of_active_transactions , dut.total_transactions             
+        // );
+
+        //This is for latency_monitor_3
+        $monitor (" %d, ReqVld %b, ReqTrId %d, RspVld %b, RspTrId %d ,\n  TrActive %b,  AvgLat %d, TotalLat %d, NumActive %d, total_trn %d, instantaneous_latency %d",$time
         ,Req_Vld, Req_TrId, Rsp_Vld, Rsp_TrId, 
-        dut.Tr_Active, dut.Tr_Cnt[0], dut.Tr_Cnt[1], dut.Tr_Cnt[2], dut.Tr_Cnt[3], dut.avg_transactions_latency, dut.big_counter, dut.num_of_active_transactions , dut.total_transactions             
+        dut.Tr_Active, dut.avg_transactions_latency, dut.big_counter, dut.num_of_active_transactions , dut.total_transactions, dut.ins_latency                          
         );
 
         //Rdy always 1

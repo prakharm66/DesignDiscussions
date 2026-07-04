@@ -50,9 +50,13 @@ module active_tr_latency_count #(parameter Id_Width = 2)
     assign start = Req_Vld & Req_Rdy;
     assign done = Rsp_Vld & Rsp_Rdy;
 
+
+    integer ins_latency;
+    integer Cnt;
     integer i,j;
     always @(posedge clk) begin
         if (rst) begin
+            ins_latency = 0;
             Tr_Active  = {2**Id_Width{1'b0}}; // all transaction inactive at reset
             for (i=0 ; i< 2**Id_Width ; i+=1)
                  Tr_Cnt[i] = 4'b0000;
@@ -67,9 +71,13 @@ module active_tr_latency_count #(parameter Id_Width = 2)
                 Tr_Active[Rsp_TrId] = 1'b0;
             end
 
+            ins_latency = 0;
             for ( j=0 ; j<2**Id_Width ; j++) begin
                 Tr_Cnt[j] = (Tr_Active[j]==0) ? 4'b0000 : Tr_Cnt[j]+1'b1;
+                ins_latency = ins_latency+Tr_Cnt[j];
+                Cnt = Cnt + Tr_Active[j];
             end
+            ins_latency = (Cnt==0) ? 4'b0000 : ins_latency/Cnt;
 
         end
              
