@@ -1,0 +1,32 @@
+Will try to make 2 types of rate adapters:
+Assumptions: 
+    Aligned Address always
+    No Error Response, just one sided
+    One Address location corresponds to 1 Byte
+    Assume no OT, and bridge keeps it ready to adjust the transaction, at low ready madter does not respond
+    Assuming all the BURST would be incremental, infact no burst signal
+
+    No sideband signals, only main signals 
+    HAddr:
+    HRData:
+    HWData:
+    HWrite:    
+    HTrans:
+    HSize:
+    HSel:
+    HRdy:
+
+1. More data width to less data width
+    32 bit -> 16 bit
+    Take a transaction and break it into two small transaction
+    Each transaction would be broken into 2, and the HTrans would need to be changed accordingly
+    Address would be incremented by 2 because it is 2 bytes
+
+2. Less Data width to more data width
+    16 bit -> 32 bit
+    If a transaction is of increment type, then wait for two transactions, concatenate the data and send in a single go
+    Changes required: Change the Burst type, Size
+    Address should be of the first one
+    One buffer to store the Data which would be concatenated
+
+
