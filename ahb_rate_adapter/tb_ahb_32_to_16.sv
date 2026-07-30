@@ -1,4 +1,6 @@
-`include "ahb_32_to_16.sv"
+// Code your testbench here
+// or browse Examples
+//`include "ahb_32_to_16.sv"
 
 module tb_ahb_adapter;
 
@@ -56,11 +58,11 @@ task sendWrite(reg [15:0] Addr, reg[31:0] data, reg [1:0] trans);
         HWData_in = data;
    
         wait(HReady_out == 1'b1); 
-        @(posedge clk);
-        HAddr_in =16'b0;
-        HWData_in = 32'b0;
-        HTrans_in = 2'b0;
-        HWrite_in = 1'b0;
+        //@(posedge clk);
+        //HAddr_in =16'b0;
+        //HWData_in = 32'b0;
+        //HTrans_in = 2'b0;
+        //HWrite_in = 1'b0;
 
         // for (integer i = 0 ; i < 5; i++) begin
         //     @(posedge clk)
@@ -86,20 +88,27 @@ initial begin
 end
 
 initial begin
-
+    
+    #35;
     // $monitor("format", )
     HSize_in = 3'b010;
     HReady_out = 1'b1;
 
     for (integer i=0; i<10; i++) begin
-        sendWrite(16'h4000+i[15:0], $urandom(), 2'b01);
+      sendWrite(16'h4000+{i[11:0],4'b0}, $urandom(), 2'b01);
+      if ($urandom()%2) begin
+        HSel_in = 1'b0;
+        @(posedge clk);
+        HSel_in = 1'b1;
+      end
     end
     $finish;
-end
 
-initial begin
+end
+  
+  initial begin
       $dumpfile("ahb2ahb.vcd");
       $dumpvars(0,tb_ahb_adapter);
-end
+  end
 
 endmodule

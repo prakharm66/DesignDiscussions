@@ -1,6 +1,7 @@
 `define NO_TRAN 4'h0
-`define FIRST_HALF 4'h1
-`define SECOND_HALF 4'h2
+`define ADDRESS_IN 4'h1
+`define DATA_FIRST 4'h2
+`define DATA_SECOND 4'h3
 
 module ahb_32_to_16_bridge(
     clk,
@@ -41,13 +42,14 @@ output [2:0] HSize_out;
 output HWrite_out;
 output reg HReady_in;
 output reg HSel_out;
-output reg [15:0] HWData_out;
+output [15:0] HWData_out;
 // output reg [16:0] HRData_in;
 //output [2:0] HBurst_out;
 
 assign HWrite_out = HWrite_in;
 
 reg [15:0] addr_new;
+reg [15:0] addr_next;
 reg [15:0] wdata_new;
 reg [3:0] state;
 reg [3:0] next_state;
@@ -69,28 +71,41 @@ end
 always @(*) begin
     case (state)
             `NO_TRAN: begin
-                next_state =(HSel_in)? `FIRST_HALF:`NO_TRAN; 
+                next_state =(HSel_in)? `ADDRESS_IN:`NO_TRAN; 
                 HSel_out = 1'b0;
                 HTrans_out = 2'b00;
             end
 
-            `FIRST_HALF: begin
-                next_state = (HReady_out)?`SECOND_HALF:`FIRST_HALF;
+            `ADDRESS_IN: begin
+                next_state = (HReady_out)?`DATA_FIRST:`ADDRESS_IN;
                 addr_new = HAddr_in;
-                wdata_new = HWData_in[15:0];
-                wdata_second = HWData_in[31:16];
+                addr_next = HAddr_in + 16'h2;
+                //wdata_new = HWData_in[15:0];
+                //wdata_second = HWData_in[31:16];
                 HSel_out = 1'b1;
-                HReady_in = 1'b0;
+                HReady_in = HReady_out;
                 HTrans_out = HTrans_in;
             end
 
-            `SECOND_HALF: begin
-                next_state = (HReady_out)?((HSel_in)? `FIRST_HALF:`NO_TRAN):`SECOND_HALF;
-                addr_new = HAddr_in + 16'h2; 
-                wdata_new = wdata_second;  
+            `DATA_FIRST: begin
+                next_state = (HReady_out)?`DATA_SECOND:`DATA_FIRST;
+                addr_new = addr_next;
+                wdata_new = HWData_in[15:0];
+                wdata_second = HWData_in[31:16];  
                 HSel_out = 1'b1; 
-                HReady_in = HReady_out;
+                HReady_in = 1'b0;
                 HTrans_out = 2'b11; 
+            end
+
+            `DATA_SECOND: begin
+              next_state = (HSel_in) ? `DATA_FIRST : `NO_TRAN;
+                addr_new = HAddr_in;
+                addr_next = HAddr_in + 16'h2;
+                wdata_new = wdata_second;
+                HSel_out = 1'b1;
+                HReady_in = 1'b1;
+                HTrans_out = (HSel_in) ? HTrans_in : 2'b0;
+
             end
 
             default: 
