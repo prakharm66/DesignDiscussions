@@ -13,7 +13,7 @@ module ahb_32_to_16_bridge(
     HReady_in,
     HSel_in,
     HWData_in,
-    // HRData_in,
+    HRData_in,
     // HBurst_in,
     HAddr_out,
     HTrans_out,
@@ -21,8 +21,8 @@ module ahb_32_to_16_bridge(
     HWrite_out,
     HReady_out,
     HSel_out,
-    HWData_out
-    // HRData_out
+    HWData_out,
+    HRData_out
   //  HBurst_out
 );
 input clk;
@@ -34,7 +34,7 @@ input HWrite_in;
 input HReady_out;
 input HSel_in;
 input [31:0] HWData_in;
-// input [31:0] HRData_out;
+input [15:0] HRData_out;
 //input [2:0] HBurst_in;
 output [15:0] HAddr_out;
 output reg [1:0] HTrans_out;
@@ -43,7 +43,7 @@ output HWrite_out;
 output reg HReady_in;
 output reg HSel_out;
 output [15:0] HWData_out;
-// output reg [16:0] HRData_in;
+output reg [31:0] HRData_in;
 //output [2:0] HBurst_out;
 
 assign HWrite_out = HWrite_in;
@@ -54,11 +54,13 @@ reg [15:0] wdata_new;
 reg [3:0] state;
 reg [3:0] next_state;
 reg [15:0] wdata_second;
+wire write_state;
+reg [15:0] read_data_lsb;
 
 assign HAddr_out = addr_new;
 assign HWData_out = wdata_new;
 assign HSize_out = (HSize_in==2'b10)? 2'b01 : HSize_in;
-
+assign write_state = HWrite_in & (state==`DATA_FIRST || state==`DATA_SECOND);
 always @(posedge clk) begin
     if (rst) begin
         state = `NO_TRAN;
@@ -80,6 +82,7 @@ always @(*) begin
                 next_state = (HReady_out)?`DATA_FIRST:`ADDRESS_IN;
                 addr_new = HAddr_in;
                 addr_next = HAddr_in + 16'h2;
+                //write_state = HWrite_in;
                 //wdata_new = HWData_in[15:0];
                 //wdata_second = HWData_in[31:16];
                 HSel_out = 1'b1;
@@ -90,21 +93,23 @@ always @(*) begin
             `DATA_FIRST: begin
                 next_state = (HReady_out)?`DATA_SECOND:`DATA_FIRST;
                 addr_new = addr_next;
-                wdata_new = HWData_in[15:0];
-                wdata_second = HWData_in[31:16];  
+                wdata_new = HWData_in[15:0] & {16{write_state}} ;
+                wdata_second = HWData_in[31:16]; 
+                read_data_lsb = HRData_out;
                 HSel_out = 1'b1; 
                 HReady_in = 1'b0;
                 HTrans_out = 2'b11; 
             end
 
             `DATA_SECOND: begin
-              next_state = (HSel_in) ? `DATA_FIRST : `NO_TRAN;
+              next_state = (HReady_out)?((HSel_in) ? `DATA_FIRST : `NO_TRAN) : `DATA_SECOND;
                 addr_new = HAddr_in;
                 addr_next = HAddr_in + 16'h2;
-                wdata_new = wdata_second;
+                wdata_new = wdata_second & {16{write_state}};
                 HSel_out = 1'b1;
                 HReady_in = 1'b1;
                 HTrans_out = (HSel_in) ? HTrans_in : 2'b0;
+                HRData_in = {HRData_out,read_data_lsb} & {32{~write_state}};
 
             end
 

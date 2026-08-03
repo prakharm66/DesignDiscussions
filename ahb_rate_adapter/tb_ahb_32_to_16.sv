@@ -13,14 +13,15 @@ module tb_ahb_adapter;
     reg HReady_out;
     reg HSel_in;
     reg [31:0] HWData_in;
-    // reg [31:0] HRData_out;
-    //reg [2:0] HBurst_in;
+    reg [15:0] HRData_out;
+    // reg [2:0] HBurst_in;
     wire [15:0] HAddr_out;
     wire [1:0] HTrans_out;
     wire [2:0] HSize_out;
     wire HWrite_out;
     wire HReady_in;
     wire HSel_out;
+    wire [31:0] HRData_in;
     wire [15:0] HWData_out;
 
 ahb_32_to_16_bridge dut (
@@ -33,7 +34,7 @@ ahb_32_to_16_bridge dut (
     .HReady_in(HReady_in),
     .HSel_in(HSel_in),
     .HWData_in(HWData_in),
-    // HRData_in,
+    .HRData_in(HRData_in),
     // HBurst_in,
     .HAddr_out(HAddr_out),
     .HTrans_out(HTrans_out),
@@ -41,8 +42,8 @@ ahb_32_to_16_bridge dut (
     .HWrite_out(HWrite_out),
     .HReady_out(HReady_out),
     .HSel_out(HSel_out),
-    .HWData_out(HWData_out)
-    // HRData_out
+    .HWData_out(HWData_out),
+    .HRData_out(HRData_out)
   //  HBurst_out
 );
 
@@ -78,6 +79,30 @@ task sendWrite(reg [15:0] Addr, reg[31:0] data, reg [1:0] trans);
 
 endtask
 
+task sendRead(reg [15:0] Addr, reg[31:0] data, reg [1:0] trans);
+    begin
+        @(posedge clk) ;
+        HSel_in = 1'b1;
+        HAddr_in = Addr;
+        HTrans_in = trans;
+        HWrite_in = 1'b0;
+
+        @(posedge clk);
+        // HWData_in = data;
+   
+        wait(HReady_out == 1'b1);
+
+
+    end
+endtask    
+
+always @(*) begin
+    if (~HWrite_in && HReady_out) begin
+        HRData_out = $urandom();
+    end
+end
+
+
 always #5 clk = ~clk;
 
 //reset sequence
@@ -95,12 +120,17 @@ initial begin
     HReady_out = 1'b1;
 
     for (integer i=0; i<10; i++) begin
-      sendWrite(16'h4000+{i[11:0],4'b0}, $urandom(), 2'b01);
-      if ($urandom()%2) begin
-        HSel_in = 1'b0;
-        @(posedge clk);
-        HSel_in = 1'b1;
-      end
+      if ($urandom()%3 == 0)  
+        sendWrite(16'h4000+{i[11:0],4'b0}, $urandom(), 2'b01);
+
+      if ($urandom()%3 == 0)   
+        sendRead(16'h5000+{i[11:0],4'b0}, $urandom(), 2'b01);
+
+    //   if ($urandom()%2) begin
+        // HSel_in = 1'b0;
+        // @(posedge clk);
+        // HSel_in = 1'b1;
+    //   end
     end
     $finish;
 
