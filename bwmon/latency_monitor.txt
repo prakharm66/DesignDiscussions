@@ -1,14 +1,32 @@
-Paper: https://arxiv.org/html/2501.17605v1#bib.bib5
+Reference: Paper: https://arxiv.org/html/2501.17605v1#bib.bib5i
 
 There are two approcahes in this paper, both approaches there are as many counters as there are possible IDs
-
-Approach 1: Full counter: Tracks each channel separately, 6 stages from awValid to BRdy
-
-Approach 2: Tiny counter: somehow Transaction level tracking
-
+	1: Full counter: Tracks each channel separately, 6 stages from awValid to BRdy
+	2: Tiny counter: somehow Transaction level tracking
 
 CHATGPT approach:
 There can be a timestamp, whenever a transaction for an ID comes, that time stamp is registered. whenever response comes, we can subtract and find latency
 
-OTHER approaches:
-Separate counters for 
+Defining latency:
+	1. Is it the time from when a request comes and when its data is transferred and response comes back?
+	2. Is it the time where no actual transfer is taking place, basically the above time - number of beats - 1(req) - 1(rsp) 
+
+
+Possible approaches for making latency monitor:
+
+If we want exact latency
+	1. Separate counters for separate TrId: at any instance, there would be only one outstanding transaction per TrId -> Each of these counter would store the clk cycles which have passed after the transaction began -> brute force approach
+	2. We can have a big global counter, and for each TrId we can have a register which stores the start of the transaction, and at the timeinstance when we want the latency, we would subtract the global time with that of that particular TrId -> If we dont want exact latency at every cycle but for certain TrId at a certain time stamp
+	3. Small counters of the size of the danger flag: if instead of exact time, only that instance when the threshold is crossed is important, we can have small counters, say if threshold is 32 cycles, we can have 5 bit counters for each TrId and use overflow detection to raise a flag 
+
+If exact latency isnot required, average would do
+	1. Average accumulated over time: If we just care about average latency since reset, we can use 2 counters and increment them accordingly, use divide operation to find average latency
+		-> We would have one counter which tracks number of active TrIds, not the exact id. Increment on new request, decrement on response 
+		-> There would be an accumulator which would increment by number of active transactions. 
+		-> There would be second counter total_requests which tracks total number of requests, incrementing by 1 on each request
+		-> average latency is accumulator/total_request
+	2. Approx average of estimated requests: If we want latency of only the active transactions
+		-> mean would be calculated at every cycle
+		-> there would be a counter to track number of active transactions, n_active_trans
+		-> there would be an accumulator, little different from 1st approach. here on each cylce it would increment n_active_trans, and at each response it would decrement by the mean
+		-> average latency would be calculated as accumulated/n_active_trans
